@@ -129,7 +129,7 @@ exports.upsertUser = async (req, res) => {
 
     // 组装信息
     const obj = { ...req.body };
-    obj.roleTypeName = obj.roleType === 0 ? "普通用户" : "管理员";
+    obj.roleTypeName = obj.roleType === 2 ? "普通用户" : "管理员";
     obj.editorTypeName = obj.editorType === 0 ? "markdown" : "富文本";
     obj.status = 1;
     obj.statusName = "启用";

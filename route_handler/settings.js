@@ -16,7 +16,7 @@ exports.updateSystemSettings = async (req, res) => {
   res.config("保存成功", 0, result);
 };
 
-// 将静态页面打包到/tmp目录下
+// 将静态页面打包到/tmp目录下,本接口未写完
 exports.createZip = (req, res) => {
-  
+  res.config('ok', 0)
 };

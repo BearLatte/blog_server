@@ -11,6 +11,8 @@ const session = require("express-session");
 const jwt = require("jsonwebtoken");
 // 导入 token 解析组件
 const { expressjwt } = require("express-jwt");
+// 导入压缩资源组件
+const compression = require('compression')
 
 // 导入全局静态变量
 const global = require("./global");
@@ -28,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/files", express.static(path.join(__dirname, "upload")));
 app.use("/files/tmp", express.static("/tmp"));
+
+app.use(compression())
 
 // 定义 session 全局中间件
 app.use(
@@ -60,13 +64,13 @@ app.use(
   expressjwt({
     secret: global.jwtTokenSecret,
     algorithms: ["HS256"],
-  }).unless({ path: [/^\/api\/auth/, /^\/files/, /^\/dist/] })
+  }).unless({ path: [/^\/api\/auth/, /^\/files/, /^\/api\/front/] })
 );
 
 // token 续期操作
 app.use((req, _, next) => {
   // 将包含鉴权的路由忽略掉
-  if (req.path.indexOf("/api/auth") !== -1 || req.path.indexOf("/files") !== -1)
+  if (req.path.indexOf("/api/auth") != -1 || req.path.indexOf("/files") !== -1 || req.path.indexOf('/api/front') != -1)
     return next();
   // 判断剩余时间是否大于30分钟，如果小于30分钟
   // 重新生成一个2小时有效期的 token 放入到 req.session.refreshToken 中
@@ -116,6 +120,9 @@ app.use("/api/special", specialRouter);
 // 导入系统设置路由
 const settingsRouter = require("./routes/settings");
 app.use("/api/settings", settingsRouter);
+
+const front = require('./routes/front')
+app.use('/api/front', front)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
