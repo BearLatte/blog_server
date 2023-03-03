@@ -10,7 +10,7 @@
   "production": {
     "username": "admin",
     "password": "Admin123.",
-    "database": "i-Blog",
+    "database": "i_Blog",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone":"+08:00"

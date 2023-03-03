@@ -1,5 +1,5 @@
 // 导入验证码生成组件
-const { captcha } = require("../utils/captcha");
+const { captcha } = require("../utils/Captcha");
 // 导入数据库模型对象
 const models = require("../database/models");
 // 导入解密工具
