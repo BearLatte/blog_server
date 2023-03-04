@@ -8,7 +8,6 @@ router.get('/blogs', front_handler.getAllBlogs)
 // 获取系统设置内容
 router.get('/getSysInfo', front_handler.getSysInfo)
 
-
 // 获取分类列表
 router.get('/categories', front_handler.getAllCategory)
 

@@ -171,5 +171,5 @@ exports.sortCategory = async (req, res) => {
     validate: true,
     updateOnDuplicate: ["sort"],
   });
-  res.config("重新排序成功", 0, result);
+  res.config("重新排序成功", 0);
 };

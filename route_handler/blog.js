@@ -159,7 +159,7 @@ exports.autoSave = async (req, res) => {
 
   obj.markdownContent = repalceBlogContent(obj.markdownContent);
   obj.content = repalceBlogContent(obj.content);
-  obj.editorTypeName = obj.editorType === 1 ? "markdown" : "富文本";
+  obj.editorTypeName = obj.editorType === 1 ?  "富文本" : "markdown";
   const result = await models.Blog.bulkCreate([obj], {
     validate: true,
     updateOnDuplicate: Object.keys(obj),
@@ -179,7 +179,7 @@ exports.updateBolgDelType = async (req, res) => {
     }
   );
   if (!result) return res.config("更新失败");
-  res.config("更新成功", 0, result);
+  res.config("更新成功", 0);
 };
 
 // 获取所有已标记删除的文章

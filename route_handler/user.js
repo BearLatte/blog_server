@@ -137,8 +137,9 @@ exports.upsertUser = async (req, res) => {
     configAvatar(obj.avatar, async (avatarErr, avatarPath) => {
       if (avatarErr) return res.config(avatarErr.message);
       obj.avatar = avatarPath ? avatarPath : "/avatars/avatar.jpg";
-      const [createErr, result] = await awaitWrap(models.User.create(obj));
+      let [createErr, result] = await awaitWrap(models.User.create(obj));
       if (createErr) return res.config(createErr.message);
+      result = result.toJSON()
       res.config("创建用户成功!", 0, { ...result, password: null });
     });
   }
@@ -258,7 +259,7 @@ exports.delteUser = async (req, res) => {
   }
 
   [error, result] = await awaitWrap(result.destroy());
-  res.config("删除成功用户成功！", 0, result);
+  res.config("删除成功！", 0);
 };
 
 // 更新用户信息
@@ -302,9 +303,10 @@ const updateUserInfo = (req, res) => {
       }
     }
     currentUser.avatar = avatarPath;
-    const [error, result] = await awaitWrap(currentUser.save());
+    let [error, result] = await awaitWrap(currentUser.save());
     if (error) return res.config(error.message);
-    res.config("更新成功", 0, result);
+    result = result.toJSON()
+    res.config("更新成功", 0, {...result, password: null});
   });
 };
 

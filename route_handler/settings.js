@@ -13,7 +13,7 @@ exports.updateSystemSettings = async (req, res) => {
     models.Setting.update(req.body, { where: { id: 1 } })
   );
   if (error) return res.config(error.message);
-  res.config("保存成功", 0, result);
+  res.config("保存成功", 0);
 };
 
 // 将静态页面打包到/tmp目录下,本接口未写完
