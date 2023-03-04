@@ -13,7 +13,8 @@ module.exports = {
           nickName: "修改为自己想要的名字",
           status: true,
           avatar: "",
-          phone: "13611173280",
+          // 修改手机号
+          phone: "999393993",
           profession: "全栈工程师",
           introduction: "全栈工程师",
           editorType: 0,
