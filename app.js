@@ -19,6 +19,10 @@ const global = require("./global");
 
 const app = express();
 
+const bodyParser = require('body-parser')
+app.use(bodyParser.json({ limit: '500mb' }))
+app.use(bodyParser.urlencoded({limit: '500mb', extended: true}))
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
