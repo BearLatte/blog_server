@@ -8,9 +8,9 @@ module.exports = {
       [
         {
           account: "admin",
-          password:
-            "Ic7C+GrOOCUGs8fhHT9oo1pFVxu+CydC1sltPU/o+YpShHEh2liodL4OLwf6zwShpcKVMytLGHiylE+FYnY3A+Pq/AxuisEeEGkvusAPl/iIYBqNjrdCBP8JRfjYP0cUaLE5YQ44Gq0M4qoQWdSonmSfD7C0eIY7tgBXVhaaGwc=",
-          nickName: "Tim",
+          // 密码 888888
+          password: "sN/DLLtukCIaTL6U39H6S8GLfRvwcPOtGawujBk9yPVIVE3wsG5HomvalthKimMqtM4pTjIGK1htxTwyn+CbSikwivN0M5Kv5zzaZvFsOwadqn7gYhJCulvnoA48AiucmJvK1BARIoUc2hHskNUxu6czUkuDb6pGgOqnc4mQpIE=",
+          nickName: "修改为自己想要的名字",
           status: true,
           avatar: "",
           phone: "13611173280",
