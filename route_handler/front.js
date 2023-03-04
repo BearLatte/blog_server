@@ -63,6 +63,7 @@ exports.getAllCategory = async (req, res) => {
       },
       categoryType: 0
     },
+    order:[['sort', 'ASC']],
     limit: pageSize
   }))
   if(error) return res.config(error.message)
